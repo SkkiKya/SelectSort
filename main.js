@@ -8,18 +8,18 @@ class SelectSort
 
     for (var i = 0; i < len; i++)
     {
-      minIndex = i; //選択された最小のインデックス
-      let minValue = arrays[minIndex];
-      for (var j = i; j < len; j++)
+      minIndex = i; //選択された最小のインデックス(暫定最小1位)
+      let minValue = arrays[minIndex];//(暫定最小1位)
+      for (var j = i; j < len; j++)　//探索は最小値がarrays[i]に入れば、その次のarray[i+1]に入るものを探しにいく
       {
-        if (minValue > arrays[j + 1])
+        if (minValue > arrays[j + 1]) //より低い値が見つかる続ける限り入れ替え
         {
-          minValue = arrays[j + 1];
-          minIndex = j + 1;
+          minValue = arrays[j + 1];　//最終的に最小値になる
+          minIndex = j + 1;　　　　　　//最終的に最小値が入っていたインデックスになる
         }
       }
 
-      // array[j]はarrays[minIndex]と交換されます
+      // arrays[i](暫定最小1位)はarrays[minIndex](最小1位)と交換されます
       if (i != minIndex)
       {
         const tmp = arrays[i];
